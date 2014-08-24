@@ -1,14 +1,12 @@
 $(document).ready(function() {
-  console.log("start");
-
   window.setInterval(function(){
-    setLinks();
+    var links = setLinks(); // set to a var so that jquery re-grabs the dom
   }, 5000);
-
 });
 
 
 function setLinks () {
+  // list of domains that dont require a DoNotFeed Link
   var whitelist = [
     "http://instagr.am/",
     "http://www.apple.com/ios/"
@@ -21,7 +19,7 @@ function setLinks () {
         return false;
       } else {
         // small link
-        $(this).parents(".userContentWrapper").find("form > div > div").append("&middot; <a href=\"" + decoded + "\" class=\"donotfeed-text\" target=\"_blank\">DoNotFeed</a>");
+        $(this).parents(".userContentWrapper").find("form > div > div").append("&middot; <a href=\"" + decoded + "\" class=\"donotfeed-text\" target=\"_blank\"><i class=\"fa fa-ban\"></i> Do Not Feed</a>");
         // big button
         //$(this).parent().append("<a href=\"" + decoded + "\" class=\"donotfeed-button\" target=\"_blank\" data-donotfeed=\"true\"><span class=\"donotfeed-top\">DoNotFeed</span><span class=\"donotfeed-bottom\">" + getTLD(decoded) + "</span></a>");
       }
