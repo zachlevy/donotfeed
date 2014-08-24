@@ -14,16 +14,16 @@ function setLinks () {
     "http://www.apple.com/ios/"
   ];
   $("[id^=feed_stream] a").each(function () {
-    if ($(this).attr("target") == "_blank" && !$(this).attr("data-donotfeed")) {
-      $(this).attr("data-donotfeed", true);
-      //console.log("Encoded: " + link.attr("href"));
-      //$(this).parent().css("background", "red");
+    if ($(this).attr("target") == "_blank" && !$(this).parents(".userContentWrapper").attr("data-donotfeed")) {
+      $(this).parents(".userContentWrapper").attr("data-donotfeed", true);
       var decoded = cleanURL($(this).attr("href"));
       if (decoded === false || $.inArray(decoded, whitelist) != -1) {
         return false;
       } else {
-        $(this).parent().append(" <a href=\"" + decoded + "\" class=\"donotfeed-text\" target=\"_blank\" data-donotfeed=\"true\">DoNotFeed</a>");
-        $(this).parent().append("<a href=\"" + decoded + "\" class=\"donotfeed-button\" target=\"_blank\" data-donotfeed=\"true\"><span class=\"donotfeed-top\">DoNotFeed</span><span class=\"donotfeed-bottom\">" + getTLD(decoded) + "</span></a>");
+        // small link
+        $(this).parents(".userContentWrapper").find("form > div > div").append("&middot; <a href=\"" + decoded + "\" class=\"donotfeed-text\" target=\"_blank\">DoNotFeed</a>");
+        // big button
+        //$(this).parent().append("<a href=\"" + decoded + "\" class=\"donotfeed-button\" target=\"_blank\" data-donotfeed=\"true\"><span class=\"donotfeed-top\">DoNotFeed</span><span class=\"donotfeed-bottom\">" + getTLD(decoded) + "</span></a>");
       }
     }
   });
