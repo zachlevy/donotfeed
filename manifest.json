@@ -16,6 +16,7 @@
 
   "content_scripts": [ {
     "js": [ "jquery.min.js", "background.js" ],
+    "css": [ "donotfeed.css" ],
     "matches": [ "http://*/*", "https://*/*"]
   }],
 
