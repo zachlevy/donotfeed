@@ -1,3 +1,68 @@
 .donotfeed-button {
-  background: green;
+  color: #FFFFFF;
+  background-color: #1BBDAF;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.5em;
+  width: 100px;
+}
+.donotfeed-top {
+  display: block;
+}
+.donotfeed-bottom {
+  display: block;
+  font-size: 0.8em;
+  color: #efefef;
+}
+
+.donotfeed-text {
+  color: #1BBDAF !important;  
+}
+.donotfeed-button:hover, 
+.donotfeed-button:focus, 
+.donotfeed-button:active, 
+.donotfeed-button.active {
+  color: #289C92 !important;
+}
+
+.donotfeed-button:hover, 
+.donotfeed-button:focus, 
+.donotfeed-button:active, 
+.donotfeed-button.active, 
+.open .dropdown-toggle.donotfeed-button { 
+  color: #FFFFFF; 
+  background-color: #289C92;
+  text-decoration: none;
+} 
+ 
+.donotfeed-button:active, 
+.donotfeed-button.active, 
+.open .dropdown-toggle.donotfeed-button { 
+  background-image: none; 
+} 
+ 
+.donotfeed-button.disabled, 
+.donotfeed-button[disabled], 
+fieldset[disabled] .donotfeed-button, 
+.donotfeed-button.disabled:hover, 
+.donotfeed-button[disabled]:hover, 
+fieldset[disabled] .donotfeed-button:hover, 
+.donotfeed-button.disabled:focus, 
+.donotfeed-button[disabled]:focus, 
+fieldset[disabled] .donotfeed-button:focus, 
+.donotfeed-button.disabled:active, 
+.donotfeed-button[disabled]:active, 
+fieldset[disabled] .donotfeed-button:active, 
+.donotfeed-button.disabled.active, 
+.donotfeed-button[disabled].active, 
+fieldset[disabled] .donotfeed-button.active { 
+  background-color: #1BBDAF; 
+} 
+ 
+.donotfeed-button .badge { 
+  color: #1BBDAF; 
+  background-color: #FFFFFF; 
 }

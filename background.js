@@ -10,23 +10,29 @@ $(document).ready(function() {
 
 function setLinks () {
   var whitelist = [
-    "http://instagr.am/"
+    "http://instagr.am/",
+    "http://www.apple.com/ios/"
   ];
   $("[id^=feed_stream] a").each(function () {
     if ($(this).attr("target") == "_blank" && !$(this).attr("data-donotfeed")) {
-      
       $(this).attr("data-donotfeed", true);
       //console.log("Encoded: " + link.attr("href"));
-      $(this).parent().css("background", "red");
+      //$(this).parent().css("background", "red");
       var decoded = cleanURL($(this).attr("href"));
       if (decoded === false || $.inArray(decoded, whitelist) != -1) {
         return false;
       } else {
-        $(this).parent().append("<a href=\"" + decoded + "\" class=\"donotfeed-button\">Link</a>");
-        //$("#blueBarNAXAnchor").append("<a href=\"" + decoded + "\">Link</a>");
+        $(this).parent().append(" <a href=\"" + decoded + "\" class=\"donotfeed-text\" target=\"_blank\" data-donotfeed=\"true\">DoNotFeed</a>");
+        $(this).parent().append("<a href=\"" + decoded + "\" class=\"donotfeed-button\" target=\"_blank\" data-donotfeed=\"true\"><span class=\"donotfeed-top\">DoNotFeed</span><span class=\"donotfeed-bottom\">" + getTLD(decoded) + "</span></a>");
       }
     }
   });
+}
+
+function getTLD (url) {
+  var matches = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i);
+  var domain = matches && matches[1];  // domain will be null if no match is found
+  return domain;
 }
 
 function cleanURL (dirty) {
