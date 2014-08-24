@@ -1,32 +1,36 @@
 {
-  "manifest_version": 2,
-
-  "name": "Do Not Feed Facebook",
-  "description": "Choose whether Facebook tracks links you click on in your news feed.",
-  "version": "1.0",
-
-  "browser_action": {
-    "default_icon": {                    // optional
-      "19": "images/icon_x19.png",           // optional
-      "38": "images/icon_x38.png",            // optional
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+    "manifest_version": 2,
+    "name": "Do Not Feed Facebook",
+    "description": "Choose whether Facebook tracks links you click on in your news feed.",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": {
+            "16": "icon16.png",
+            "19": "images/icon_x19.png",
+            "38": "images/icon_x38.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        },
+        "default_title": "Do Not Feed"
     },
-    "default_title": "Do Not Feed",      // optional; shown in tooltip
-    "default_popup": "popup.html"        // optional
-  },
-
-  "content_scripts": [ {
-    "js": [ "jquery.min.js", "background.js" ],
-    //"css": [ "css/donotfeed.css", "css/font-awesome.min.css" ],
-    "css": [ "css/donotfeed.css" ],
-    "matches": [ "http://*/*", "https://*/*"]
-  }],
-
-  "permissions": [
-    "downloads",
-    "https://facebook.com/",
-    "<all_urls>"
-  ]
+    "content_scripts": [
+        {
+            "js": [
+                "jquery.min.js",
+                "background.js"
+            ],
+            "css": [
+                "css/donotfeed.css"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "downloads",
+        "https://facebook.com/",
+        "<all_urls>"
+    ]
 }
